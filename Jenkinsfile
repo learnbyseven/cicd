@@ -31,7 +31,7 @@ pipeline {
     }
   }
  }
-  stage('Deploy in TEST ') {
+  stage('Deploy in TEST') {
       when {
         expression {
           openshift.withCluster() {
