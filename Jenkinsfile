@@ -31,4 +31,16 @@ pipeline {
     }
   }
  }
+  stage('Deploy in TEST') {
+     steps {
+       script {
+         openshift.withCluster() {
+           openshift.withProject("test") {
+           openshift.newApp("s2icode:test", "--name=web").narrow('svc').expose()
+           }
+         }
+       }
+     }
+   }
+ }
 }
