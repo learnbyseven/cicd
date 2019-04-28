@@ -1,5 +1,5 @@
 pipeline { 
-    agent any }
+    agent any 
 stages {
     stage("Build application in development"){
     // Do Something
