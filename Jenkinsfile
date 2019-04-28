@@ -24,7 +24,7 @@ pipeline {
         script {
           openshift.withCluster() {
             openshift.withProject("dev") {
-            openshift.tag("docker-registry.default.svc:5000/dev/s2icode:latest", "docker-registry.default.svc:5000/test/s2icode:test")
+            openshift.tag("dev/s2icode:latest", "test/s2icode:test")
           }
         }
       }
