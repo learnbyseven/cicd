@@ -24,7 +24,7 @@ pipeline {
         script {
           openshift.withCluster() {
             openshift.withProject("dev") {
-            openshift.tag("dev/s2icode:latest", "test/s2icode:test")
+            openshift.tag("dev/s2icode" "test/s2icode:test")
           }
         }
       }
