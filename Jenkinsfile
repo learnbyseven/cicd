@@ -20,4 +20,15 @@ pipeline {
     }
   }
 }
+stage('Promote to TEST') {
+      steps {
+        script {
+          openshift.withCluster() {
+            openshift.withProject("dev") {
+            openshift.tag("docker-registry.default.svc:5000/dev/s2icode:latest", "docker-registry.default.svc:5000/test/s2icode:test")
+          }
+        }
+      }
+    }
+  }
 }
