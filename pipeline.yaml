@@ -14,12 +14,11 @@ spec:
             jenkinsfilePath: jenkinfile
         type: JenkinsPipeline
     triggers:
-        - github:
-            secret: secret
-          type: GitHub
-        - generic:
-            secret: secret
-          type: Generic
-        - bitbucket:
-            secret: secret
-          type: Bitbucket
+     - github:
+         secret: S51F5dU_gnt19RQ1Z6rO
+     type: GitHub
+     - generic:
+         secret: NpyZ9EoEs7SBDi7jMVqJ
+     type: Generic
+status:
+  lastVersion: 0
