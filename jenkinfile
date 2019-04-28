@@ -5,6 +5,6 @@ pipeline {
 }
 stage('Code check') {
   steps {
-    git branch: "${GIT_BRANCH}", url: "${GIT_REPO}" // declared in environment
+    git branch: "master", url: "" // declared in environment
   }
 }
