@@ -1,15 +1,10 @@
-pipeline {
-    agent any
-    stages {
-        stage('Example') {
-            steps {
-                echo 'Hello World'
-            }
-        }
+pipeline { 
+    agent any }
+stages {
+    stage("One"){
+    // Do Something
     }
-    post { 
-        always { 
-            echo 'I will always say Hello again!'
-        }
+    stage("Two"){
+    // Do Something
     }
 }
