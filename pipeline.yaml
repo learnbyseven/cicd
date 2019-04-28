@@ -2,8 +2,8 @@ apiVersion: v1
 kind: BuildConfig
 metadata:
     labels:
-        app: voteweb
-    name: voteweb-pipeline
+        app: vote-pipeline
+    name: vote-pipeline
 spec:
     source:
         git:
@@ -11,14 +11,14 @@ spec:
             uri: https://github.com/learnbyseven/cicd.git
     strategy:
         jenkinsPipelineStrategy:
-            jenkinsfilePath: jenkinfile
+            jenkinsfilePath: Jenkinsfile
         type: JenkinsPipeline
     triggers:
-     - github:
-         secret: S51F5dU_gnt19RQ1Z6rO
-     type: GitHub
-     - generic:
-         secret: NpyZ9EoEs7SBDi7jMVqJ
-     type: Generic
+        - github:
+            secret: S51F5dU_gnt19RQ1Z6rO
+          type: GitHub
+        - generic:
+            secret: NpyZ9EoEs7SBDi7jMVqJ
+          type: Generic
 status:
   lastVersion: 0
