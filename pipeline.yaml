@@ -11,7 +11,7 @@ spec:
             uri: https://github.com/learnbyseven/cicd.git
     strategy:
         jenkinsPipelineStrategy:
-            jenkinsfilePath: jenkinsfile
+            jenkinsfilePath: Jenkinsfile
         type: JenkinsPipeline
     triggers:
         - github:
