@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Build Application') {
       when {
         expression {
           openshift.withCluster() {
@@ -31,4 +31,22 @@ pipeline {
     }
   }
  }
+  stage('Deploy in TEST ') {
+      when {
+        expression {
+          openshift.withCluster() {
+            return !openshift.selector('dc', 'web').exists()
+          }
+        }
+      }
+      steps {
+        script {
+          openshift.withCluster() {
+            openshift.withProject("test") {
+            openshift.newApp("s2icode:test", "--name=web").narrow('svc').expose()
+          }
+        }
+      }
+    }
+  }
 }
