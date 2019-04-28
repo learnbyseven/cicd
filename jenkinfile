@@ -1,10 +1,15 @@
 pipeline {
-    agent {
-      node {''}
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
-}
-stage('Code check') {
-  steps {
-    git branch: "master", url: "https://github.com/learnbyseven/cicd.git" // declared in environment
-  }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
+    }
 }
