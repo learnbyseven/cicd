@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        node {label 'voteweb'}
+        node {""}
     }
     environment {
         APPLICATION_NAME = 'voteweb'
