@@ -1,10 +1,10 @@
 pipeline { 
     agent any }
 stages {
-    stage("One"){
+    stage("Build application in development"){
     // Do Something
     }
-    stage("Two"){
+    stage("PromoteTotesting"){
     // Do Something
     }
 }
