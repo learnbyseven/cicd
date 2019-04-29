@@ -12,7 +12,7 @@ pipeline {
       steps {
         script {
           openshift.withCluster() {
-            openshift.withProject("dev") {
+            openshift.withProject("p1") {
             openshift.newApp('openshift/webbuilder:s2i~https://github.com/learnbyseven/s2icode.git --allow-missing-images --strategy=source')
           }
         }
@@ -23,8 +23,8 @@ pipeline {
       steps {
         script {
           openshift.withCluster() {
-            openshift.withProject("dev") {
-            openshift.tag("s2icode", "test/s2icode:test")
+            openshift.withProject("p1") {
+            openshift.tag("s2icode", "p2/s2icode:test")
           }
         }
       }
@@ -34,7 +34,7 @@ pipeline {
      steps {
        script {
          openshift.withCluster() {
-           openshift.withProject("test") {
+           openshift.withProject("p2") {
            openshift.newApp("s2icode:test", "--name=s2icodetest", "--allow-missing-images=true").narrow('svc').expose()
           }
         }
@@ -46,8 +46,8 @@ pipeline {
       steps {
         script {
           openshift.withCluster() {
-            openshift.withProject("test") {
-            openshift.tag("s2icode:test", "prod/s2icode:prod")
+            openshift.withProject("p2") {
+            openshift.tag("s2icode:test", "p3/s2icode:prod")
           }
         }
       }
@@ -57,7 +57,7 @@ pipeline {
      steps {
        script {
          openshift.withCluster() {
-           openshift.withProject("prod") {
+           openshift.withProject("p3") {
            openshift.newApp("s2icode:prod", "--name=s2icodeprod", "--allow-missing-images=true").narrow('svc').expose()
           }
         }
