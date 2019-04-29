@@ -35,7 +35,7 @@ pipeline {
        script {
          openshift.withCluster() {
            openshift.withProject("test") {
-           openshift.newApp("--image-stream=test/s2icode:test", "--name=web", "--allow-missing-imagestream-tags=false").narrow('svc').expose()
+           openshift.newApp("s2icode:test", "--name=s2icodetest", "--allow-missing-images=true").narrow('svc').expose()
           }
         }
       }
