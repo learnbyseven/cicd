@@ -52,7 +52,7 @@ pipeline {
         }
       }
     }
-}
+  }
   stage('Deploy in Production') {
      steps {
        script {
@@ -64,5 +64,5 @@ pipeline {
       }
     }
   }
-}
+ }
 }
