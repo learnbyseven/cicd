@@ -20,8 +20,14 @@ pipeline {
     }
   }
    stage("wait_prior_starting_smoke_testing") {
-    echo "Waiting 120 seconds for deployment to complete prior starting smoke testing"
-    sleep(time:120,unit:"SECONDS")
+     steps {
+       script {
+         echo "Waiting 120 seconds for deployment to complete prior starting smoke testing" {
+           sleep(time:120,unit:"SECONDS") {
+           }
+         }
+       }
+     }
   }
    stage('Promote to TEST') {
       steps {
