@@ -19,9 +19,9 @@ pipeline {
       }
     }
   }
-   stage('Promote to TEST') {
+   stage('Promote to TEST') 
+     input(message: 'promote') {
       steps {
-        input message: 'You REALLY want to build?', ok: 'Yes'}
         script {
           openshift.withCluster() {
             openshift.withProject("dev") {
