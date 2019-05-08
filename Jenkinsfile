@@ -31,6 +31,7 @@ pipeline {
       }
     }
   }
+}
   stage('Deploy in TEST') {
      steps {
        script {
