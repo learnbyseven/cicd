@@ -19,8 +19,8 @@ pipeline {
       }
     }
   }
-   stage('Promote to TEST') 
-     input(message: 'promote') {
+    stage('Promote to TEST') {
+     input(message: 'promote')
       steps {
         script {
           openshift.withCluster() {
