@@ -22,7 +22,7 @@ pipeline {
    stage('Promote to TEST') {
       steps {
         script {
-          input "Continue?"
+          input "Continue?" {
           openshift.withCluster() {
             openshift.withProject("dev") {
             openshift.tag("dev/s2icode:latest", "test/s2icode:test")
@@ -31,6 +31,7 @@ pipeline {
       }
     }
   }
+}
   stage('Deploy in TEST') {
      steps {
        script {
