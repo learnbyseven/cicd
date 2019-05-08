@@ -12,7 +12,7 @@ pipeline {
       steps {
         script {
           openshift.withCluster() {
-            openshift.withProject("new") {
+            openshift.withProject("dev") {
             openshift.newApp('openshift/webbuilder:s2i~https://github.com/learnbyseven/s2icode.git --allow-missing-images --strategy=source')
           }
         }
@@ -22,6 +22,7 @@ pipeline {
    stage('Promote to TEST') {
       steps {
         script {
+          input "Continue?"
           openshift.withCluster() {
             openshift.withProject("dev") {
             openshift.tag("dev/s2icode:latest", "test/s2icode:test")
