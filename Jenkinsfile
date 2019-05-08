@@ -20,7 +20,10 @@ pipeline {
     }
   }
     stage('Promote to TEST') {
-     input(message: 'promote')
+      input { 
+          message "Should we continue?"
+          ok "Yes, we should."
+      }
       steps {
         script {
           openshift.withCluster() {
@@ -31,7 +34,6 @@ pipeline {
       }
     }
   }
-}
   stage('Deploy in TEST') {
      steps {
        script {
