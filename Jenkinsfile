@@ -21,8 +21,8 @@ pipeline {
   }
    stage('Promote to TEST') {
       steps {
+        input('Do you want to promote to test ?') {
         script {
-          input "Continue?" {
           openshift.withCluster() {
             openshift.withProject("dev") {
             openshift.tag("dev/s2icode:latest", "test/s2icode:test")
