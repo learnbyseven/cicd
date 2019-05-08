@@ -21,8 +21,8 @@ pipeline {
   }
     stage('Promote to TEST') {
       input { 
-          message "Should we continue?"
-          ok "Yes, we should."
+          message "Would you like to Promote your application image to Test?"
+          ok "Yes, Promote to Test."
       }
       steps {
         script {
